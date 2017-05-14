@@ -43,9 +43,12 @@ public class CacheTest {
 
         assertCacheSize(cache, pairCount);
         assertValue(cache, "key1", "value1");
+        cache.cache("key100", "value100");
         assertCache();
         assertRetrieve();
+        cache.remove("key5");
         assertRemove();
+        cache.clear();
         assertClear();
     }
 
@@ -75,7 +78,6 @@ public class CacheTest {
     }
 
     private void assertCache() throws Exception {
-        cache.cache("key100", "value100");
         Assert.assertEquals("value100", cache.retrieve("key100"));
     }
 
@@ -84,12 +86,10 @@ public class CacheTest {
     }
 
     private void assertRemove() throws Exception {
-        cache.remove("key5");
         Assert.assertEquals(null, cache.retrieve("key5"));
     }
 
     private void assertClear() throws Exception {
-        cache.clear();
         Assert.assertEquals(0, cache.size());
     }
 }
