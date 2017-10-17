@@ -1,5 +1,4 @@
 #Synopsis
-Wiley's interview task
 
 Configurable two-level cache implementation
 
